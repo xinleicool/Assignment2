@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="grid-list">
+    @if (ViewBag.lst!=null)
+    {
+
+        foreach (var da in ViewBag.lst)
+        {
+            <div class="grid-list-item">
+                <img src="~/Content/imgs/@da.image" />
+                <div class="grid-list-item-content">
+                    <span>name:@da.name</span>
+                    <span>area:@da.area</span>
+
+                </div>
+                <a href="/Home/Detail?id=@da.id">Detail</a>
+
+            </div>
+        }
+
+
+    }else
+            {
+                <p>No data found</p>
+            }
+
+    
+
+
+</div>
+

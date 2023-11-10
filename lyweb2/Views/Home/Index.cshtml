@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="main">
+    <div class="search">
+        <input id="key" name="keyword" placeholder="Please enter the name or type to query" style="width:600px;height:50px;"  /> <button class="btn-info" onclick="gotoSearch()">Search</button>
+    </div>
+
+    <div class="grid">
+
+        @foreach (var da in ViewBag.lst)
+        {
+            <div class="grid-item">
+                <img src="~/Content/imgs/@da.image" />
+                <span>name:@da.name</span>
+                <span>area:@da.area</span>
+                <span class="ms-warp">description:@da.description</span>
+            </div>
+        }
+
+       
+
+    </div>
+</div>
+<script>
+    function gotoSearch() {
+        console.log("查询事件");
+        var key = $("#key").val();
+        console.log("关键字:  " + key)
+        window.location.href="/home/list?key="+key
+    }
+</script>
